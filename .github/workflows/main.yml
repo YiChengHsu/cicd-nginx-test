@@ -26,7 +26,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: your-dockerhub-username/nginx
+          images: frankhsuyicheng/nginx
           tags: |
             type=ref,event=branch
             type=sha
@@ -46,5 +46,5 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker pull your-dockerhub-username/nginx:${{ github.sha }}
-            docker-compose -f /path/to/your/docker-compose.yml up -d
+            docker pull frankhsuyicheng/nginx:${{ github.sha }}
+            docker-compose -f ./docker-compose.yml up -d
